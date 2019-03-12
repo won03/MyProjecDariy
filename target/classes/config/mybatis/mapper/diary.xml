@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="diary">
+	<insert id="diary_insert" parameterType="diary">
+		insert into user_dar (title, content, the_date, member_idx)
+			values (
+					#{title},
+					#{content},
+					#{the_date},
+					#{member_idx})
+	</insert>
+	
+<update id="diary_update" parameterType="diary">
+		update user_dar
+		set 	content 	= #{content},
+				title 		= #{title},
+				the_date 	= #{the_date}
+		where 	idx 		= #{idx}
+	</update>
+	
+	<delete id="diary_delete" parameterType="int">
+		delete from user_dar
+		where idx = #{idx}
+	</delete>
+	
+	<select id="diary_select_member" parameterType="int" resultType="diary">
+		select idx, title, content, the_date
+		from user_dar
+		where member_idx = #{member_idx}
+		order by idx
+	</select>
+	
+	<select id="diary_select_idx" parameterType="int" resultType="diary">
+		select content
+		from user_dar
+		where idx = #{idx}
+	</select>
+	
+	
+</mapper>

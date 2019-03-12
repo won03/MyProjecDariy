@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<typeAliases>
+		<typeAlias type="vo.MemberVO" alias="member"></typeAlias>
+		<typeAlias type="vo.DiaryVO" alias="diary"></typeAlias>
+		
+	</typeAliases>
+
+<environments default="">
+		<environment id="">
+			<transactionManager type="JDBC"/>
+			<dataSource type="POOLED">
+				<property name="driver" value="org.mariadb.jdbc.Driver"/>
+				<property name="url" value="jdbc:mariadb://127.0.0.1:3306/wcdi"/>
+				<property name="username" value="root"/>
+				<property name="password" value="0000"/>
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<mappers>
+		<!-- 맵퍼를 준비해두면 나중에 쿼리문을 통해 자동으로 객체화 해 준다. -->
+		<mapper resource="config/mybatis/mapper/member.xml" />
+		<mapper resource="config/mybatis/mapper/diary.xml" />
+		
+	</mappers>
+</configuration>
+
+
+
+
+
+
+
